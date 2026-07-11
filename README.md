@@ -96,6 +96,8 @@ S3
             └── date
 
 ```
+<img width="1918" height="802" alt="image" src="https://github.com/user-attachments/assets/c31dc46d-9d04-40e7-8ac5-fb9c15b6c269" />
+
 <img width="1918" height="825" alt="Screenshot 2026-07-11 131857" src="https://github.com/user-attachments/assets/89591a6f-758d-48e3-bd36-12f5f66dca84" />
 
 <img width="1918" height="826" alt="Screenshot 2026-07-11 134013" src="https://github.com/user-attachments/assets/a6d6c42b-b0ed-46a8-8efc-ad0611f60e4d" />
