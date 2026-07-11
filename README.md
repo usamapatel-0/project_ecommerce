@@ -72,6 +72,8 @@ Catalog
       │
       └── gold
 ```
+<img width="447" height="845" alt="image" src="https://github.com/user-attachments/assets/52ca1730-ed2c-4b64-9e4f-52918034bfd3" />
+
 
 ---
 
