@@ -1,0 +1,462 @@
+{
+  "datasets": [
+    {
+      "name": "dcfbb52c",
+      "displayName": "fact_transactions_denorm",
+      "config": {
+        "version": "1.1",
+        "source": "ecommerce.gold.fact_transactions_denorm",
+        "dimensions": [
+          {
+            "name": "date_id",
+            "expr": "source.date_id",
+            "displayName": "Date Id"
+          },
+          {
+            "name": "transaction_date",
+            "expr": "source.transaction_date",
+            "displayName": "Transaction Date"
+          },
+          {
+            "name": "transaction_ts",
+            "expr": "source.transaction_ts",
+            "displayName": "Transaction Ts"
+          },
+          {
+            "name": "transaction_id",
+            "expr": "source.transaction_id",
+            "displayName": "Transaction Id"
+          },
+          {
+            "name": "customer_id",
+            "expr": "source.customer_id",
+            "displayName": "Customer Id"
+          },
+          {
+            "name": "seq_no",
+            "expr": "source.seq_no",
+            "displayName": "Seq No"
+          },
+          {
+            "name": "product_id",
+            "expr": "source.product_id",
+            "displayName": "Product Id"
+          },
+          {
+            "name": "channel",
+            "expr": "source.channel",
+            "displayName": "Channel"
+          },
+          {
+            "name": "coupon_code",
+            "expr": "source.coupon_code",
+            "displayName": "Coupon Code"
+          },
+          {
+            "name": "coupon_flag",
+            "expr": "source.coupon_flag",
+            "displayName": "Coupon Flag"
+          },
+          {
+            "name": "unit_price_currency",
+            "expr": "source.unit_price_currency",
+            "displayName": "Unit Price Currency"
+          },
+          {
+            "name": "quantity",
+            "expr": "source.quantity",
+            "displayName": "Quantity"
+          },
+          {
+            "name": "unit_price",
+            "expr": "source.unit_price",
+            "displayName": "Unit Price"
+          },
+          {
+            "name": "gross_amount",
+            "expr": "source.gross_amount",
+            "displayName": "Gross Amount"
+          },
+          {
+            "name": "discount_percent",
+            "expr": "source.discount_percent",
+            "displayName": "Discount Percent"
+          },
+          {
+            "name": "discount_amount",
+            "expr": "source.discount_amount",
+            "displayName": "Discount Amount"
+          },
+          {
+            "name": "tax_amount",
+            "expr": "source.tax_amount",
+            "displayName": "Tax Amount"
+          },
+          {
+            "name": "net_amount",
+            "expr": "source.net_amount",
+            "displayName": "Net Amount"
+          },
+          {
+            "name": "net_amount_inr",
+            "expr": "source.net_amount_inr",
+            "displayName": "Net Amount Inr"
+          },
+          {
+            "name": "year",
+            "expr": "source.year",
+            "displayName": "Year"
+          },
+          {
+            "name": "month_name",
+            "expr": "source.month_name",
+            "displayName": "Month Name"
+          },
+          {
+            "name": "day_name",
+            "expr": "source.day_name",
+            "displayName": "Day Name"
+          },
+          {
+            "name": "is_weekend",
+            "expr": "source.is_weekend",
+            "displayName": "Is Weekend"
+          },
+          {
+            "name": "quarter",
+            "expr": "source.quarter",
+            "displayName": "Quarter"
+          },
+          {
+            "name": "week",
+            "expr": "source.week",
+            "displayName": "Week"
+          },
+          {
+            "name": "sku",
+            "expr": "source.sku",
+            "displayName": "Sku"
+          },
+          {
+            "name": "category_code",
+            "expr": "source.category_code",
+            "displayName": "Category Code"
+          },
+          {
+            "name": "category_name",
+            "expr": "source.category_name",
+            "displayName": "Category Name"
+          },
+          {
+            "name": "brand_code",
+            "expr": "source.brand_code",
+            "displayName": "Brand Code"
+          },
+          {
+            "name": "brand_name",
+            "expr": "source.brand_name",
+            "displayName": "Brand Name"
+          },
+          {
+            "name": "color",
+            "expr": "source.color",
+            "displayName": "Color"
+          },
+          {
+            "name": "size",
+            "expr": "source.size",
+            "displayName": "Size"
+          },
+          {
+            "name": "rating_count",
+            "expr": "source.rating_count",
+            "displayName": "Rating Count"
+          },
+          {
+            "name": "hour_of_day",
+            "expr": "source.hour_of_day",
+            "displayName": "Hour Of Day"
+          },
+          {
+            "name": "month",
+            "expr": "DATE_TRUNC('MONTH', source.transaction_date)",
+            "displayName": "Month"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          },
+          {
+            "name": "total_sales",
+            "expr": "SUM(source.net_amount)",
+            "displayName": "Total Sales"
+          }
+        ]
+      }
+    }
+  ],
+  "pages": [
+    {
+      "name": "1b450f6f",
+      "displayName": "Sales",
+      "layout": [
+        {
+          "widget": {
+            "name": "541a6737",
+            "multilineTextboxSpec": {
+              "lines": [
+                "<span style=\"font-size: 24px;\">**Sales Insights**</span>"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "ebe44b7d",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dcfbb52c",
+                  "fields": [
+                    {
+                      "name": "month",
+                      "expression": "`month`"
+                    },
+                    {
+                      "name": "measure(total_sales)",
+                      "expression": "MEASURE(`total_sales`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Monthly Sales Trend",
+                "showTitle": true
+              },
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "month",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fieldName": "measure(total_sales)",
+                  "displayName": "Net_Amount",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 1,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "7328fd5a",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dcfbb52c",
+                  "fields": [
+                    {
+                      "name": "category_name",
+                      "expression": "`category_name`"
+                    },
+                    {
+                      "name": "measure(total_sales)",
+                      "expression": "MEASURE(`total_sales`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Total Sales by Category Name",
+                "showTitle": true
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "category_name",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "measure(total_sales)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 1,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "290b3e96",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dcfbb52c",
+                  "fields": [
+                    {
+                      "name": "sum(net_amount)",
+                      "expression": "SUM(`net_amount`)"
+                    },
+                    {
+                      "name": "hour_of_day",
+                      "expression": "`hour_of_day`"
+                    },
+                    {
+                      "name": "day_name",
+                      "expression": "`day_name`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "heatmap",
+              "encodings": {
+                "x": {
+                  "fieldName": "hour_of_day",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "day_name",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "color": {
+                  "fieldName": "sum(net_amount)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 7,
+            "width": 12,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    },
+    {
+      "name": "3a4b9a6d",
+      "displayName": "Global Filters",
+      "layout": [
+        {
+          "widget": {
+            "name": "d82c8935",
+            "queries": [
+              {
+                "name": "dashboards/01f17d19f5f81199a97e79dfe942cb7e/datasets/01f17d1a53a912d7aedf0491b0ca9e20_category_name",
+                "query": {
+                  "datasetName": "dcfbb52c",
+                  "fields": [
+                    {
+                      "name": "category_name",
+                      "expression": "`category_name`"
+                    },
+                    {
+                      "name": "category_name_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true
+              },
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "category_name",
+                    "queryName": "dashboards/01f17d19f5f81199a97e79dfe942cb7e/datasets/01f17d1a53a912d7aedf0491b0ca9e20_category_name"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 1,
+            "height": 2
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_GLOBAL_FILTERS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}
